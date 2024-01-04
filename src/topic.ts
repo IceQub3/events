@@ -17,5 +17,8 @@ export interface Topic<Arguments extends any[], ThisConstraint = {} | undefined>
         context?: ThisArgument
     ): void;
 
-    unsubscribe(listener: Subscriber<Arguments, any>): void
+    unsubscribe<Context extends ThisConstraint = undefined extends ThisConstraint ? undefined : never>(
+        listener: Subscriber<Arguments, Context>,
+        context?: Context
+    ): void
 }
