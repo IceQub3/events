@@ -1,24 +1,32 @@
 {
   "name": "@icequb3/events",
   "type": "module",
-  "version": "0.1.0",
+  "version": "0.1.5",
   "devDependencies": {
+    "@microsoft/api-extractor": "^7.39.1",
     "bun-types": "^0.1.0",
     "esbuild": "^0.19.11",
     "typescript": "^5.3.3"
   },
   "exports": {
     ".": {
-      "types": "./dist/index.d.ts",
       "import": "./dist/index.mjs",
-      "require": "./dist/index.cjs"
+      "require": "./dist/index.cjs",
+      "types": "./dist/index.d.ts"
     }
   },
-  "types": "types",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/IceQub3/events.git"
+  },
   "scripts": {
     "build": "bun run build:module & bun run build:commonjs & bun run build:types",
     "build:module": "esbuild src/index.ts --bundle --minify --format=esm --platform=browser --packages=external --outfile=dist/index.mjs",
     "build:commonjs": "esbuild src/index.ts --bundle --minify --format=cjs --platform=node --packages=external --outfile=dist/index.cjs",
-    "build:types": "tsc -d --emitDeclarationOnly --outDir types"
-  }
+    "build:types": "tsc",
+    "prepare": "bun run build && api-extractor run --local --verbose"
+  },
+  "files": [
+    "dist"
+  ]
 }

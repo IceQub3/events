@@ -5,11 +5,16 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "isolatedModules": true,
-    "moduleResolution": "node",
+    "moduleResolution": "Bundler",
     "lib": ["esnext"],
     "target": "esnext",
+    "module": "ES6",
     "types": [],
-    "declaration": true
+    "declaration": true,
+    "verbatimModuleSyntax": true,
+    "outDir": ".temp/types",
+    "emitDeclarationOnly": true,
+    "resolvePackageJsonExports": true
   },
   "include": [
     "src/**.ts"

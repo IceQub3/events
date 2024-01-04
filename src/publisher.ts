@@ -1,6 +1,9 @@
-import { Subscriber, Topic } from "./topic";
+import type { Subscriber, Topic } from "./topic";
 
 
+/**
+ * @public
+ */
 export class Publisher<Arguments extends any[], ThisConstraint = {} | undefined> implements Topic<Arguments, ThisConstraint> {
     private listeners = new Set<Subscriber<Arguments, ThisConstraint | undefined>>();
     private contexties = new WeakMap<Subscriber<Arguments, ThisConstraint | undefined>, ThisConstraint>();
@@ -15,7 +18,7 @@ export class Publisher<Arguments extends any[], ThisConstraint = {} | undefined>
     
     subscribe<ThisArgument extends ThisConstraint = undefined extends ThisConstraint ? undefined : never>(
         subscriber: Subscriber<Arguments, ThisArgument | undefined>,
-        context: ThisArgument
+        context?: ThisArgument
     ): void {
         const sub = subscriber as Subscriber<Arguments, ThisConstraint | undefined>;
         this.listeners.add(sub);

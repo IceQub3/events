@@ -1,11 +1,14 @@
 
-
+/**
+ * @public
+ */
 export type Subscriber<
     Arguments extends any[],
     ThisArgument = undefined
 > = (this: ThisArgument, ...args: Arguments) => void | PromiseLike<void>;
 
 /**
+ * @public
  * A topic of events
  */
 export interface Topic<Arguments extends any[], ThisConstraint = {} | undefined> {
