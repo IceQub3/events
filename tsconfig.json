@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "noImplicitAny": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "isolatedModules": true,
+    "moduleResolution": "node",
+    "lib": ["esnext"],
+    "target": "esnext",
+    "types": [],
+    "declaration": true
+  },
+  "include": [
+    "src/**.ts"
+  ]
+}

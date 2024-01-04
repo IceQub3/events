@@ -1,0 +1,24 @@
+{
+  "name": "@icequb3/events",
+  "type": "module",
+  "version": "0.1.0",
+  "devDependencies": {
+    "bun-types": "^0.1.0",
+    "esbuild": "^0.19.11",
+    "typescript": "^5.3.3"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "types": "types",
+  "scripts": {
+    "build": "bun run build:module & bun run build:commonjs & bun run build:types",
+    "build:module": "esbuild src/index.ts --bundle --minify --format=esm --platform=browser --packages=external --outfile=dist/index.mjs",
+    "build:commonjs": "esbuild src/index.ts --bundle --minify --format=cjs --platform=node --packages=external --outfile=dist/index.cjs",
+    "build:types": "tsc -d --emitDeclarationOnly --outDir types"
+  }
+}
