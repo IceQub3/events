@@ -1,7 +1,7 @@
 {
   "name": "@icequb3/events",
   "type": "module",
-  "version": "0.1.6",
+  "version": "1.0.0",
   "devDependencies": {
     "@microsoft/api-extractor": "^7.39.1",
     "bun-types": "^0.1.0",
